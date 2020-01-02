@@ -1,0 +1,28 @@
+{
+    "name": "InvoiceLoader",
+    "version": "1.0.0",
+    "description": "Invoice loading - Weather",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha src/tests/db.js && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/reyesdiego/InvoiceLoader.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/reyesdiego/InvoiceLoader/issues"
+    },
+    "homepage": "https://github.com/reyesdiego/InvoiceLoader#readme",
+    "devDependencies": {
+        "chai": "^4.2.0",
+        "chai-as-promised": "^7.1.1",
+        "chai-http": "^4.3.0",
+        "mocha": "^6.2.2",
+        "nodemon": "^2.0.2",
+        "should": "^13.2.3"
+    }
+}
