@@ -10,6 +10,8 @@ describe('DB - INVOICE', function() {
             tax: 21,
             net: 1000
         };
-        await invoiceDB.create(invoice);
+        const invoiceNew = await invoiceDB.create(invoice);
+        expect(invoiceNew).has.property('tax', 21);
+        expect(invoiceNew).has.property('net', 1000);
     });
 });
