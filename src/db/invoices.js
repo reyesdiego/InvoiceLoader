@@ -15,6 +15,15 @@ class Invoices {
         return invoiceNew;
     }
 
+    async getById(_id) {
+        const invoices = this.invoices.filter(i => i._id === _id)[0];
+        return invoices || null;
+    }
+
+    async getByNumber(number) {
+        const invoices = this.invoices.filter(i => i.number === number)[0];
+        return invoices || null;
+    }
     async deleteById(_id) {
         const result = { _id, deleted: true };
         const invoiceIdx = this.invoices.findIndex(i => i._id === _id);
