@@ -9,7 +9,7 @@ class Invoices {
         this.invoices = [];
     }
 
-    create(invoice) {
+    async create(invoice) {
         const invoiceNew = new Invoice({ ...invoice });
         this.invoices.push(invoiceNew);
         return invoiceNew;

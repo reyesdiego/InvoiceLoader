@@ -6,7 +6,7 @@ describe('DB - INVOICE', function() {
         expect(1).eq(1);
     });
 
-    it('CREATE - Should create and Invoice and return it', async function() {
+    it('CREATE - Should create an Invoice and return it', async function() {
         const date = new Date();
         const invoice = {
             tax: 21,
@@ -25,5 +25,15 @@ describe('DB - INVOICE', function() {
 
         invoiceNew = await invoiceDB.create(invoice);
         expect(invoiceNew).has.property('number', 2);
+    });
+
+    it('DELETE - Should delete an Invoice and return it', async function() {
+        const invoice = {
+            tax: 21,
+            net: 1000
+        };
+        const invoiceNew = await invoiceDB.create(invoice);
+
+        await invoiceDB.delete(invoiceNew._id);
     });
 });
