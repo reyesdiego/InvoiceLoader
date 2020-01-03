@@ -14,6 +14,17 @@ class Invoices {
         this.invoices.push(invoiceNew);
         return invoiceNew;
     }
+
+    async deleteById(_id) {
+        const result = { _id, deleted: true };
+        const invoiceIdx = this.invoices.findIndex(i => i._id === _id);
+        if (invoiceIdx >= 0) {
+            this.invoices.splice(invoiceIdx, 1);
+        } else {
+            result.deleted = false;
+        }
+        return result;
+    }
 }
 
 module.exports = new Invoices();

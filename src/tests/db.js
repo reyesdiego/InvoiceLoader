@@ -27,13 +27,13 @@ describe('DB - INVOICE', function() {
         expect(invoiceNew).has.property('number', 2);
     });
 
-    it('DELETE - Should delete an Invoice and return it', async function() {
+    it('DELETE - Should delete an Invoice and returns a object with "deleted" property equals true', async function() {
         const invoice = {
             tax: 21,
             net: 1000
         };
         const invoiceNew = await invoiceDB.create(invoice);
-
-        await invoiceDB.delete(invoiceNew._id);
+        const result = await invoiceDB.deleteById(invoiceNew._id);
+        expect(result).has.property('deleted', true);
     });
 });
