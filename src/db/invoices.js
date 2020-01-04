@@ -17,12 +17,12 @@ class Invoices {
 
     async getById(_id) {
         const invoices = this.invoices.filter(i => i._id === _id)[0];
-        return invoices || null;
+        return invoices || [];
     }
 
     async getByNumber(number) {
-        const invoices = this.invoices.filter(i => i.number === number)[0];
-        return invoices || null;
+        const invoices = this.invoices.filter(i => i.number === parseInt(number))[0];
+        return invoices || [];
     }
     async deleteById(_id) {
         const result = { _id, deleted: true };
@@ -33,6 +33,9 @@ class Invoices {
             result.deleted = false;
         }
         return result;
+    }
+    async list(params) {
+        return this.invoices.filter(i => i.date < params.end && i.date > params.begin);
     }
 }
 

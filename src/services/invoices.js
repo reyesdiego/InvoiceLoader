@@ -1,5 +1,6 @@
 const invoiceDB = require('../db/invoices');
 const { UUID } = require('../constants');
+const moment = require('moment');
 
 module.exports.create = async invoice => {
     try {
@@ -24,6 +25,14 @@ module.exports.retrieve = async invoiceNumber => {
 module.exports.delete = async invoiceId => {
     try {
         return await invoiceDB.deleteById(invoiceId);
+    } catch (err) {
+        throw err;
+    }
+};
+
+module.exports.list = async ({ limit, begin, end }) => {
+    try {
+        return await invoiceDB.list({ limit, begin: moment(begin), end: moment(end) });
     } catch (err) {
         throw err;
     }

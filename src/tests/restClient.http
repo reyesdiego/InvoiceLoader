@@ -1,3 +1,27 @@
 ###
 GET http://localhost:8081/api-v1
 
+
+###
+POST http://localhost:8081/api-v1/invoices
+Content-Type: application/json
+
+{
+    "net":2000.2532232,
+    "tax":10.5
+}
+
+###
+GET http://localhost:8081/api-v1/invoices/1457d8b3-7f73-4af1-8f7e-4442ef606cbb
+
+###
+GET http://localhost:8081/api-v1/invoices/1
+
+
+
+###
+GET http://localhost:8081/api-v1/invoices/list?begin=2020-01-03&end=2020-01-5
+
+
+###
+GET http://api.weatherstack.com/current?access_key=362e2f16a98e7b95c4453c98a0e3ec7c&query= Buenos Aires
