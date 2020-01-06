@@ -2,6 +2,10 @@
 GET http://localhost:8081/api-v1
 
 
+
+###
+GET http://localhost:8081/api-v1/taxes
+
 ###
 POST http://localhost:8081/api-v1/invoices
 Content-Type: application/json
@@ -12,7 +16,7 @@ Content-Type: application/json
 }
 
 ###
-GET http://localhost:8081/api-v1/invoices/1457d8b3-7f73-4af1-8f7e-4442ef606cbb
+GET http://localhost:8081/api-v1/invoices/828e5fa6-b8b5-4658-970c-a86f8e87fe5a
 
 ###
 GET http://localhost:8081/api-v1/invoices/1
@@ -20,14 +24,23 @@ GET http://localhost:8081/api-v1/invoices/1
 
 
 ###
-GET http://localhost:8081/api-v1/invoices/list?begin=2020-01-03&end=2020-01-5
+GET http://localhost:8081/api-v1/invoices/list?begin=2020-01-03&end=2020-01-7
+
+
+###
+GET http://localhost:8081/api-v1/invoices/list
+
 
 
 ###
 GET http://api.weatherstack.com/current?access_key=362e2f16a98e7b95c4453c98a0e3ec7c&query= Buenos Aires
 
 ###
-GET http://localhost:8081/api-v1/weather/current
+GET http://localhost:8081/api-v1/weather/current?location=river plate stadium
 
 ###
 GET http://localhost:8081/api-v1/weather/forecast
+
+
+###
+GET https://maps.googleapis.com/maps/api/geocode/json?address=hurlingham argentina&key=AIzaSyD3H-O1mKc1tJgW2sHUf9tWRYxnu0X5wWw

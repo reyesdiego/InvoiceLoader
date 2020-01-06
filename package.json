@@ -4,7 +4,7 @@
     "description": "Invoice loading - Weather",
     "main": "index.js",
     "scripts": {
-        "test": "mocha src/tests/service.js && exit 1",
+        "test": "mocha src/tests/db.js && exit 1",
         "start": "nodemon ."
     },
     "repository": {
@@ -32,6 +32,7 @@
         "cors": "^2.8.5",
         "express": "^4.17.1",
         "moment": "^2.24.0",
-        "uuidv4": "^6.0.0"
+        "uuidv4": "^6.0.0",
+        "wifi-location": "0.0.1"
     }
 }

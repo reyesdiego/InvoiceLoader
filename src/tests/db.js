@@ -1,6 +1,7 @@
 const expect = require('chai').expect;
 const assert = require('chai').assert;
 const invoiceDB = require('../db/invoices');
+const moment = require('moment');
 
 const INVOICE = {
     tax: 21,
@@ -48,5 +49,28 @@ describe('DB - INVOICE', function() {
         const invoice = await invoiceDB.getByNumber(invoiceNew.number);
         assert.isNotNull(invoice);
         expect(invoice).has.property('number', invoiceNew.number);
+    });
+
+    it('GET BY Date Range - Should return a Invoice list between a date range', async function() {
+        await invoiceDB.create(INVOICE);
+        const invoices = await invoiceDB.getByDateRange({
+            begin: moment().add(-1, 'day'),
+            end: moment().add(1, 'day')
+        });
+
+        assert.isNotNull(invoices);
+        expect(invoices).has.length;
+        expect(invoices.length).eq(invoiceDB.invoices.length);
+    });
+
+    it('GET BY Date Range - Should Not return an Empty Invoice list between a date range', async function() {
+        await invoiceDB.create(INVOICE);
+        const invoices = await invoiceDB.getByDateRange({
+            begin: moment().add(-5, 'day'),
+            end: moment().add(-4, 'day')
+        });
+        assert.isNotNull(invoices);
+        expect(invoices).has.length;
+        expect(invoices.length).eq(0);
     });
 });
