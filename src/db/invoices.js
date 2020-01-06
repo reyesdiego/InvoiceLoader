@@ -34,8 +34,8 @@ class Invoices {
         }
         return result;
     }
-    async list(params) {
-        return this.invoices.filter(i => i.date < params.end && i.date > params.begin);
+    async getByDateRange({ begin, end, limit }) {
+        return this.invoices.filter(i => i.date <= end && i.date >= begin);
     }
 }
 
